@@ -1,0 +1,156 @@
+/* ...existing code... */
+
+/* Add theme variables and tweaks for higher contrast */
+:root{
+    --bg-accent: rgba(255,255,255,0.85);
+    --card-bg: rgba(255,255,255,0.9);
+    --muted: #666666;
+    --accent: #337ab7; /* primary accent (blue) */
+    --danger: #d9534f;
+    --success: #5cb85c;
+    --warning: #f0ad4e;
+}
+
+/* General Body and Page Layout */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-image: url('https://i.pinimg.com/736x/28/76/cf/2876cf5f61bc25adbb1b3b8ebe9ad57f.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #2ba5b6;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* subtle overlay so content is readable */
+}
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.20));
+    backdrop-filter: blur(10px) saturate(1.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* header */
+.header, .bottom-nav {
+    background-color: var(--bg-accent);
+    backdrop-filter: blur(6px);
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Buttons — use variables and consistent paddings */
+.add-to-cart-btn, .buy-now-btn, .home-btn, .checkout-btn, .back-btn, .next-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.95em;
+    display: inline-block;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+/* main semantic colors */
+.add-to-cart-btn { background-color: var(--success); color: #fff; }
+.buy-now-btn   { background-color: var(--warning); color: #fff; }
+.home-btn      { background-color: var(--accent); color: #fff; }
+.checkout-btn  { background-color: var(--success); color: #fff; }
+.back-btn      { background-color: #8a8a8a; color: #fff; }
+.next-btn      { background-color: var(--accent); color: #fff; }
+
+.add-to-cart-btn:hover, .buy-now-btn:hover, .home-btn:hover, .checkout-btn:hover, .next-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* product-card updates to align actions horizontally on larger screens */
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.product-actions { 
+    display: flex; 
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* bottom navigation: make items look like pill buttons */
+.bottom-nav {
+    display: flex;
+    gap: 8px;
+    justify-content: space-around;
+    padding: 12px;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.06);
+}
+.nav-item {
+    background: transparent;
+    border-radius: 10px;
+    color: #555;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.14s ease, color 0.12s ease, transform 0.08s;
+    padding: 8px 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.nav-item.active {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(51,122,183,0.18);
+}
+.nav-item:hover {
+    color: #111;
+    background: rgba(255,255,255,0.6);
+}
+
+/* other small legibility tweaks */
+.product-name { 
+    font-weight: 700; 
+    margin-bottom: 6px; 
+    color: #222;
+    font-size: 0.98em;
+}
+.price-tag { 
+    color: var(--danger); 
+    font-weight: 800; 
+    margin-bottom: 10px; 
+    font-size: 0.95em;
+}
+
+/* make images crisp and centered */
+.product-card img, .home-card img, .cart-item img {
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* responsive grid tweaks */
+@media (max-width: 420px) {
+    .product-grid, .home-grid { grid-template-columns: 1fr; gap: 14px; padding: 16px; }
+    .app-container { border-radius: 0; min-height: 100vh; }
+}
+
+/* ...existing code... */
